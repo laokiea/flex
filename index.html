@@ -224,6 +224,59 @@
 		<div class='child'>9</div>
 	</div>
 
+	<h2>设置在项目上的属性</h2>
+	<h4>1. order : 定义项目的排列顺序，数值越小，排列越靠前，默认为0。</h4>
+	<div class="continer-default">
+		<div class='child order-4'>1<p>order : 4</p></div>
+		<div class='child order-2'>2</div>
+		<div class='child order-1'>4<p>order : 1</p></div>
+		<div class='child order-3'>3</div>
+	</div>
 
+	<h4>
+	2. flex-grow : 属性定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大。
+	</h4>
+	<h4>
+	如果所有项目的flex-grow属性都为1，则它们将等分剩余空间（如果有的话）。</h4>
+	<h4>如果一个项目的flex-grow属性为2，其他项目都为1，则前者占据的剩余空间将比其他项多一倍。</h4>
+	<h4>
+	如果有剩余空间，那么那个最大的将占据剩余空间。
+	</h4>
+	<div class="continer-default">
+		<div class='child '>0<p>flex-grow : 0</p></div>
+		<div class='child flex-grow-10'>10<p>flex-grow : 10</p></div>
+		<div class='child '>0<p>flex-grow : 0</p></div>
+	</div>
+	<div class="continer-default">
+		<div class='child flex-grow-1'>1<p>flex-grow : 1</p></div>
+		<div class='child flex-grow-2'>2<p>flex-grow : 2</p></div>
+		<div class='child flex-grow-2'>2<p>flex-grow : 2</p></div>
+		<div class='child flex-grow-1'>1<p>flex-grow : 1</p></div>
+	</div>
+
+	<h4>3. flex-shrink属性定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小。</h4>
+	<h4>如果所有项目的flex-shrink属性都为1，当空间不足时，都将等比例缩小。如果一个项目的flex-shrink属性为0，其他项目都为1，则空间不足时，前者不缩小。</h4>
+	<h4>负值对该属性无效。</h4>
+	<div class="continer-default-min">
+		<div class='child flex-shrink-0'>1<p>shrink:0</p></div>
+		<div class='child flex-shrink-1'>2<p>shrink:1</p></div>
+		<div class='child flex-shrink-1'>3<p>shrink:1</p></div>
+		<div class='child flex-shrink-1'>4<p>shrink:1</p></div>
+	</div>
+
+	<h4>4. flex-basis属性定义了在分配多余空间之前，项目占据的主轴空间（main size）。浏览器根据这个属性，计算主轴是否有多余空间。它的默认值为auto，它可以设为跟width或height属性一样的值（比如350px），则项目将占据固定空间。</h4>
+	<div class="continer-default">
+		<div class='child flex-basis'>1<p>basis:60</p></div>
+		<div class='child flex-basis'>2<p>basis:60</p></div>
+		<div class='child flex-basis'>3<p>basis:60</p></div>
+	</div>
+
+	<h4>5. flex属性是flex-grow, flex-shrink 和 flex-basis的简写，默认值为0 1 auto。后两个属性可选。该属性有两个快捷值：auto (1 1 auto) 和 none (0 0 auto)。建议优先使用这个属性，而不是单独写三个分离的属性，因为浏览器会推算相关值。</h4>
+	<h4>6. align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。</h4>
+	<div class="continer-default-tall">
+		<div class='child'>1</div>
+		<div class='child align-self'>2<p>flex-end</p></div>
+		<div class='child'>3</div>
+	</div>
 </body>
 </html>
